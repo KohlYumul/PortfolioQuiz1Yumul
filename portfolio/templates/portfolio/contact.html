@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 0 auto; text-align: center; padding: 3rem 2rem;">
+    <h1>Get In Touch</h1>
+    <p style="margin-bottom: 2.5rem;">Have an interesting project, job opening, or just want to say hello? Feel free to reach out through any of the channels below!</p>
+
+    <div style="margin-bottom: 2rem;">
+        <h3 style="color: var(--primary); margin-bottom: 0.25rem;">📍 Location</h3>
+        <p>{{ info.location }}</p>
+    </div>
+
+    <div style="margin-bottom: 2.5rem;">
+        <h3 style="color: var(--primary); margin-bottom: 0.25rem;">✉️ Email</h3>
+        <p><a href="mailto:{{ info.email }}" style="color: var(--accent); text-decoration: none; font-weight: 600;">{{ info.email }}</a></p>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-bottom: 2rem;">
+
+    <h3 style="color: var(--primary); margin-bottom: 1rem;">Connect with Me</h3>
+    <div style="display: flex; justify-content: center; gap: 1.5rem;">
+        <a href="{{ info.github }}" target="_blank" class="btn" style="background-color: #24292e;">GitHub</a>
+    </div>
+</div>
+{% endblock %}

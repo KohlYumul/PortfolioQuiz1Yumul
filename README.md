@@ -17,6 +17,9 @@ Instructions for Cloning the Project
    Explore the page by clicking Home, About, Projects, and Contact, located at the upper right corner of the page
 
    Home page is the introduction, there's a button also to redirect you to the projects page
+
    About page is about my introduction also
+
    Projects page is where my past projects made, with a button to redirect you to the project page
+
    Contact page is where you can contact me using an email

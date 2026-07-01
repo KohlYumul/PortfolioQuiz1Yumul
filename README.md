@@ -23,3 +23,11 @@ Instructions for Cloning the Project
    Projects page is where my past projects made, with a button to redirect you to the project page
 
    Contact page is where you can contact me using an email
+
+Note
+
+If error occurs on the first run, run this command. Ctrl+C to stop before typing in the command
+
+```bash
+py manage.py makemigrations
+py manage.py migrate

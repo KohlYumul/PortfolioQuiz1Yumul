@@ -1,0 +1,19 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<h1>My Projects</h1>
+<p>Select a title below to pull full technical specifications natively from the database:</p>
+
+<div class="grid">
+    {% for project in projects %}
+        <div class="card" style="text-align: center; padding: 2rem;">
+            <h3>
+                <a href="{% url 'project_detail' project.pk %}" style="color: var(--accent); text-decoration: none; font-weight: 700;">
+                    {{ project.project_name }}
+                </a>
+            </h3>
+        </div>
+    {% empty %}
+        <p>No projects found. Please register data objects inside your Django Admin dashboard.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -10,7 +10,7 @@ def about(request):
 
 def project_list_view(request):
     projects = Project.objects.all()
-    return render(request, 'portfolio/projects_list.html', {'projects': projects})
+    return render(request, 'portfolio/project_list.html', {'projects': projects})
 
 
 def project_detail_view(request, pk):

@@ -14,12 +14,15 @@ Instructions for Cloning the Project
 py manage.py makemigrations
 py manage.py migrate
 ```
+3. Type this command to load the data
 
-3. Run the server using this command, then click the link "http://127.0.0.1:8000/"
+   python manage.py loaddata db_backup.json
+
+4. Run the server using this command, then click the link "http://127.0.0.1:8000/"
 
    py manage.py runserver
 
-4. Feel free to explore the page
+5. Feel free to explore the page
 
    Explore the page by clicking Home, About, Projects, and Contact, located at the upper right corner of the page
 

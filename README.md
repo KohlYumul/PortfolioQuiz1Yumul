@@ -8,11 +8,18 @@ Instructions for Cloning the Project
    
    cd PortfolioQuiz1Yumul
 
-2. Run the server using this command, then click the link "http://127.0.0.1:8000/"
+2. Type this command to prevent first run errors
+
+```bash
+py manage.py makemigrations
+py manage.py migrate
+```
+
+3. Run the server using this command, then click the link "http://127.0.0.1:8000/"
 
    py manage.py runserver
 
-3. Feel free to explore the page
+4. Feel free to explore the page
 
    Explore the page by clicking Home, About, Projects, and Contact, located at the upper right corner of the page
 
@@ -23,11 +30,3 @@ Instructions for Cloning the Project
    Projects page is where my past projects made, with a button to redirect you to the project page
 
    Contact page is where you can contact me using an email
-
-Note
-
-If error occurs on the first run, run this command. Ctrl+C to stop before typing in the command
-
-```bash
-py manage.py makemigrations
-py manage.py migrate

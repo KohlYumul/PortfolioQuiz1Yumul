@@ -1,0 +1,25 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="card" style="max-width: 700px; margin: 0 auto 2rem auto;">
+    <h1>Add New Project</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">{{ form.project_name.label_tag }} {{ form.project_name }}</div>
+        <div class="form-group">{{ form.description.label_tag }} {{ form.description }}</div>
+        <div class="form-group">{{ form.tech_stack.label_tag }} {{ form.tech_stack }}</div>
+        <div class="form-group">{{ form.link.label_tag }} {{ form.link }}</div>
+        <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Save Project</button>
+    </form>
+</div>
+
+<h2>Existing Projects</h2>
+<div class="grid">
+    {% for project in projects %}
+        <div class="card" style="text-align: center;">
+            <h3><a href="{% url 'project_detail' project.pk %}" style="color: var(--accent); text-decoration: none;">{{ project.project_name }}</a></h3>
+        </div>
+    {% empty %}
+        <p>No projects created yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

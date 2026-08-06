@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
-from .models import Project, PersonalInformation, ContactInquiry, Testimony
-from .forms import ProjectForm, ContactInquiryForm, TestimonyForm
+from .models import Project, PersonalInformation, Testimony
+from .forms import ProjectForm, TestimonyForm
 
 def index(request):
     return render(request, 'portfolio/index.html')
@@ -36,26 +36,6 @@ def add_project_view(request):
 
     projects = Project.objects.all()
     return render(request, 'portfolio/add_project.html', {'form': form, 'projects': projects})
-
-
-def contact_view(request):
-    success_message = False
-    if request.method == 'POST':
-        form = ContactInquiryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            success_message = True
-            form = ContactInquiryForm()
-    else:
-        form = ContactInquiryForm()
-
-    personal_info = PersonalInformation.objects.first()
-    context = {
-        'info': personal_info,
-        'form': form,
-        'success': success_message
-    }
-    return render(request, 'portfolio/contact.html', context)
 
 
 def add_testimony_view(request):

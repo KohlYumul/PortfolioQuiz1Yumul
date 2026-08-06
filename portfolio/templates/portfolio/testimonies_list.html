@@ -1,0 +1,20 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1>Client Testimonies</h1>
+    <a href="{% url 'add_testimony' %}" class="btn">+ Leave a Testimony</a>
+</div>
+
+<div class="grid">
+    {% for testimony in testimonies %}
+        <div class="card">
+            <h3><a href="{% url 'testimony_detail' testimony.pk %}" style="color: var(--primary); text-decoration: none;">{{ testimony.full_name }}</a></h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Posted on {{ testimony.created_at|date:"M d, Y" }}</p>
+            <p>{{ testimony.content|truncatewords:20 }}</p>
+            <a href="{% url 'testimony_detail' testimony.pk %}" style="color: var(--accent); font-weight: 600; text-decoration: none;">Read full testimony →</a>
+        </div>
+    {% empty %}
+        <p>No testimonies left yet. Be the first to leave feedback!</p>
+    {% endfor %}
+</div>
+{% endblock %}

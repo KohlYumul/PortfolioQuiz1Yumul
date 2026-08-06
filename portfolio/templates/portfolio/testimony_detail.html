@@ -1,0 +1,13 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="card" style="max-width: 700px; margin: 0 auto; padding: 2rem;">
+    <h1>Testimony by {{ testimony.full_name }}</h1>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Submitted on {{ testimony.created_at|date:"F d, Y" }}</p>
+    
+    <div style="border-left: 4px solid var(--accent); padding-left: 1rem; margin-bottom: 2rem;">
+        <p style="font-size: 1.15rem; color: var(--text-main);">"{{ testimony.content }}"</p>
+    </div>
+    
+    <a href="{% url 'testimonies_list' %}" style="color: var(--text-muted); text-decoration: none;">← Back to Testimonies</a>
+</div>
+{% endblock %}

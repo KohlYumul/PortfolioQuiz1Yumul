@@ -33,3 +33,7 @@ py manage.py migrate
    Projects page is where my past projects made, with a button to redirect you to the project page
 
    Contact page is where you can contact me using an email
+
+   Add Projects page is where you will add a project you made
+
+   Testimony page is where you will share a solemn statement of truth

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Project, ContactInquiry, Testimony
+from .models import Project, Testimony
 
 class ProjectForm(forms.ModelForm):
     class Meta:
@@ -12,18 +12,6 @@ class ProjectForm(forms.ModelForm):
             'link': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'https://github.com/...'}),
         }
 
-class ContactInquiryForm(forms.ModelForm):
-    class Meta:
-        model = ContactInquiry
-        fields = ['first_name', 'last_name', 'contact_number', 'email', 'address', 'message']
-        widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
-            'contact_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Number'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}),
-            'address': forms.Textarea(attrs={'class': 'form-control', 'rows': 2, 'placeholder': 'Address'}),
-            'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'Your Message'}),
-        }
 
 class TestimonyForm(forms.ModelForm):
     class Meta:

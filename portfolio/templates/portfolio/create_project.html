@@ -1,0 +1,40 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="card" style="max-width: 650px; margin: 2rem auto; padding: 2rem;">
+    <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Create New Project</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.project_name.label_tag }}
+            {{ form.project_name }}
+            {{ form.project_name.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+            {{ form.description.errors }}
+        </div>
+
+        <div class="form-group">
+            <label>Tech Stacks (Select options):</label>
+            <div style="margin-top: 0.5rem; border: 1px solid #cbd5e1; padding: 1rem; border-radius: 6px; max-height: 150px; overflow-y: auto;">
+                {{ form.tech_stacks }}
+            </div>
+            {{ form.tech_stacks.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.link.label_tag }}
+            {{ form.link }}
+            {{ form.link.errors }}
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn" style="flex: 1; border: none; cursor: pointer;">Create Project</button>
+            <a href="{% url 'dashboard' %}" class="btn" style="background-color: #64748b; text-decoration: none; text-align: center;">Cancel/View Admin Dashboard</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

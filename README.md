@@ -2,9 +2,13 @@
 
 Before you start, I suggest using Pycharm when cloning the project, some shortcuts are not supported at vscode or any other programming apps.
 
+Create a django project first at Pycharm before you start, keep the default settings
+
 ---
 
 ## 🛠️ Local Installation & Setup
+
+Open the terminal in Pycharm
 
 Follow these steps to set up and run the project locally on your machine after cloning:
 

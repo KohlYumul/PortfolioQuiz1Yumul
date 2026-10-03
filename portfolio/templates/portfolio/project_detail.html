@@ -10,7 +10,13 @@
 
     <div style="margin-top: 1.5rem;">
         <h3 style="color: var(--primary);">Tech Stack</h3>
-        <p><code>{{ project.tech_stack }}</code></p>
+        <p>
+            {% for stack in project.tech_stacks.all %}
+                <span style="background-color: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 16px; font-weight: 600; margin-right: 6px;">{{ stack.name }}</span>
+            {% empty %}
+                <code>No tech stack specified</code>
+            {% endfor %}
+        </p>
     </div>
 
     {% if project.link %}

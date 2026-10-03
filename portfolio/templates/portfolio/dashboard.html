@@ -1,0 +1,83 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1>Admin Control Dashboard</h1>
+    <div>
+        <a href="{% url 'create_project' %}" class="btn" style="margin-right: 0.5rem;">+ Add New Project</a>
+        <a href="{% url 'create_tech_stack' %}" class="btn" style="background-color: #10b981;">+ Add New Tech Stack</a>
+        <a href="{% url 'admin_logout' %}" class="btn" style="background-color: #ef4444; margin-left: 1rem;">Logout</a>
+    </div>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+        <div style="background-color: #d1fae5; color: #065f46; padding: 0.75rem; border-radius: 6px; margin-bottom: 1.5rem;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- Table 1: Projects -->
+<div class="card" style="margin-bottom: 2.5rem;">
+    <h2 style="margin-bottom: 1rem; color: var(--primary);">Projects Overview</h2>
+    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+            <tr style="border-bottom: 2px solid #e2e8f0; background-color: #f8fafc;">
+                <th style="padding: 0.75rem;">Project Name</th>
+                <th style="padding: 0.75rem;">Description</th>
+                <th style="padding: 0.75rem;">Tech Stack</th>
+                <th style="padding: 0.75rem;">Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 0.75rem; font-weight: 600;">{{ project.project_name }}</td>
+                    <td style="padding: 0.75rem;">{{ project.description|truncatechars:50 }}</td>
+                    <td style="padding: 0.75rem;">{{ project.display_tech_stacks|default:"None" }}</td>
+                    <td style="padding: 0.75rem;">
+                        {% if project.link %}
+                            <a href="{{ project.link }}" target="_blank" style="color: var(--accent);">Visit Link</a>
+                        {% else %}
+                            <span style="color: var(--text-muted);">No Link</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="4" style="padding: 1rem; text-align: center;">No projects added yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Table 2: Tech Stacks -->
+<div class="card">
+    <h2 style="margin-bottom: 1rem; color: var(--primary);">Tech Stacks Overview</h2>
+    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+            <tr style="border-bottom: 2px solid #e2e8f0; background-color: #f8fafc;">
+                <th style="padding: 0.75rem;">Tech Stack Name</th>
+                <th style="padding: 0.75rem;">Projects It Was Used In</th>
+                <th style="padding: 0.75rem;">Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stack in tech_stacks %}
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 0.75rem; font-weight: 600;">{{ stack.name }}</td>
+                    <td style="padding: 0.75rem;">
+                        {% for proj in stack.projects.all %}
+                            <span style="background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 12px; font-size: 0.85rem; margin-right: 4px;">{{ proj.project_name }}</span>
+                        {% empty %}
+                            <span style="color: var(--text-muted);">Not assigned to any project</span>
+                        {% endfor %}
+                    </td>
+                    <td style="padding: 0.75rem;">{{ stack.created_at|date:"M d, Y H:i" }}</td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="3" style="padding: 1rem; text-align: center;">No tech stacks added yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

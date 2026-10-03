@@ -62,12 +62,18 @@ copy .env.example .env
 # Ensure the PortfolioQuiz/settings.py reads these values
 In the PortfolioQuiz/settings.py, import config from decouple and read those keys:
 
+Copy and Paste this below "from pathlib import Path"
+```
 from decouple import config, Csv
+```
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-default-key-change-this-in-prod')
+
 DEBUG = config('DEBUG', default=True, cast=bool)
+
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost', cast=Csv())
 
+Note: If red lines appear on decouple, confiq, and Csv, hover the cursor to decouple and do Alt+Shift+Enter, then hover the cursor to config, do Alt+Shift+Enter two times, the first will install packages, the second will create a function in init.py, and hover the cursor to Csv, do Alt+Shift+Enter two times, the first will install packages, the second will create a function in init.py.
 
 5. Run Database Migrations
 

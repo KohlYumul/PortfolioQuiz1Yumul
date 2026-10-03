@@ -21,8 +21,8 @@ Follow these steps to set up and run the project locally on your machine after c
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repository-url>
-cd <repository-folder-name>
+git clone https://github.com/KohlYumul/PortfolioQuiz1Yumul
+cd PortfolioQuiz1Yumul
 ```
 
 2. Create and Activate a Virtual Environment

@@ -56,8 +56,9 @@ cp .env.example .env
 ```
 
 # Windows
+```
 copy .env.example .env
-
+```
 Open .env and replace your-django-secret-key-goes-here with your actual secret key or development string.
 
 5. Run Database Migrations

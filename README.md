@@ -37,15 +37,9 @@ copy .env.example .env
 ```
 
 # Ensure the PortfolioQuiz/settings.py reads these values
-In the PortfolioQuiz/settings.py, import config from decouple and read those keys:
+Go to PortfolioQuiz/settings.py, import config from decouple and read those keys:
 
 from decouple import config, Csv
-
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-default-key-change-this-in-prod')
-
-DEBUG = config('DEBUG', default=True, cast=bool)
-
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost', cast=Csv())
 
 # Note
 
@@ -75,12 +69,6 @@ Follow the terminal prompts to enter your username, email, and password.
 ```
 python manage.py runserver
 ```
-
-Public Site: http://127.0.0.1:8000/
-
-Superuser Login: http://127.0.0.1:8000/admin-login/
-
-Dashboard: http://127.0.0.1:8000/dashboard/
 
 # Feel free to explore the page
 

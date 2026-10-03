@@ -1,13 +1,27 @@
 from django.db import models
 
+class TechStack(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Project(models.Model):
     project_name = models.CharField(max_length=200)
     description = models.TextField()
-    tech_stack = models.CharField(max_length=200)
+    # Many-to-Many allows a single tech stack to belong to multiple projects
+    tech_stacks = models.ManyToManyField(TechStack, related_name='projects')
     link = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.project_name
+
+    # Helper method to output comma-separated names for templates
+    def display_tech_stacks(self):
+        return ", ".join([ts.name for ts in self.tech_stacks.all()])
+
 
 class PersonalInformation(models.Model):
     first_name = models.CharField(max_length=100)
@@ -20,6 +34,19 @@ class PersonalInformation(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+
+class ContactInquiry(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    contact_number = models.CharField(max_length=20)
+    email = models.EmailField()
+    address = models.TextField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Inquiry from {self.first_name} {self.last_name}"
 
 
 class Testimony(models.Model):

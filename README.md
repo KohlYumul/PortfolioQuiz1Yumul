@@ -59,12 +59,20 @@ cp .env.example .env
 ```
 copy .env.example .env
 ```
-Open .env and replace your-django-secret-key-goes-here with your actual secret key or development string.
+# Ensure the PortfolioQuiz/settings.py reads these values
+In the PortfolioQuiz/settings.py, import config from decouple and read those keys:
+
+from decouple import config, Csv
+
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-default-key-change-this-in-prod')
+DEBUG = config('DEBUG', default=True, cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost', cast=Csv())
+
 
 5. Run Database Migrations
-Note: Do NOT run makemigrations. The migration blueprints are already tracked in the repository. Simply run:
 
 ```
+python manage.py makemigrations
 python manage.py migrate
 ```
 

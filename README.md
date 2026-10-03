@@ -78,8 +78,9 @@ python manage.py loaddata initial_data.json
 7. Create Superuser Account (Dashboard Access)
 ```
 python manage.py createsuperuser
-Follow the terminal prompts to enter your username, email, and password.
 ```
+Follow the terminal prompts to enter your username, email, and password.
+
 
 9. Launch Development Server
 ```

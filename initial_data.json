@@ -1,0 +1,82 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2026-10-03T01:01:34.648Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "Kohl Yumul",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$LWTEHsIMUsojs9JZ56ZHC4$CbN3FVVxNwg2PacVEzXWrb6lpoABQFlqEi1MkwpvUpo=",
+        "last_login": "2026-10-03T00:58:35.255Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-10-03T00:44:19.330Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ilvactw8vnawrral5zl1bepuws5tdu8b",
+    "fields": {
+        "session_data": ".eJxVjDkOwjAURO_iGlmx8UpJzxks-y84gBwpTirE3UmkFCBNNe_NvEXK61LT2mlOI4qLUOL025UMT2o7wEdu90nC1JZ5LHJX5EG7vE1Ir-vh_h3U3Ou2BhcVBHDsWXEsWRkTrGOygSF4A0AEXnmlI1FBh-ctRWPQg2EbBhSfL_40OH8:1xCo5D:aLxVvluRv75D7Y6ZM9aFuUbIyENw0MXNnSWMWQxQ_co",
+        "expire_date": "2026-10-17T00:58:35.262Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "moofwusi4g7i6psx97n8t0jhnet2swyh",
+    "fields": {
+        "session_data": "e30:1xCnrw:Xc3llmAoWO2zb74VmONY5264aIL_bBid8gXHC-wfS1g",
+        "expire_date": "2026-10-17T00:44:52.498Z"
+    }
+},
+{
+    "model": "portfolio.techstack",
+    "pk": 1,
+    "fields": {
+        "name": "test",
+        "created_at": "2026-10-03T00:50:23.115Z"
+    }
+},
+{
+    "model": "portfolio.project",
+    "pk": 1,
+    "fields": {
+        "project_name": "one",
+        "description": "test",
+        "link": null,
+        "tech_stacks": [
+            1
+        ]
+    }
+},
+{
+    "model": "portfolio.personalinformation",
+    "pk": 1,
+    "fields": {
+        "first_name": "Kohl",
+        "middle_name": "Daniel",
+        "last_name": "Yumul",
+        "summary": "test",
+        "contact_number": "5656",
+        "email": "test@gmail.com",
+        "address": "Pampanga"
+    }
+}
+]

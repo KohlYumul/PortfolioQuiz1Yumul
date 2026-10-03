@@ -65,9 +65,12 @@ In the PortfolioQuiz/settings.py, import config from decouple and read those key
 from decouple import config, Csv
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-default-key-change-this-in-prod')
+
 DEBUG = config('DEBUG', default=True, cast=bool)
+
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost', cast=Csv())
 
+Note: You might see the red lines at decouple, config and Csv. Hover the cursor to "decouple" and do Alt+Shift+Enter, that will install the package. Also, hover the cursor to "config" and do Alt+Shift+Enter, but do this two times, first will install the package, then the second time will create a function in __init__.py. Lastly, hover the cursor to "Csv" and do Alt+Shift+Enter, also do this two times, just the same thing, first will install the package, then the second time will create a function in __init__.py
 
 5. Run Database Migrations
 

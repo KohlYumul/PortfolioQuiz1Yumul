@@ -26,10 +26,6 @@ python -m venv .venv
 ```
 
 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-# Or manually install core packages:
 ```
 pip install django python-decouple
 ```

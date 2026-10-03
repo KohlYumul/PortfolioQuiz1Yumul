@@ -1,17 +1,6 @@
 ﻿# PortfolioQuiz1Yumul
 
-# Django Portfolio & Admin Management Dashboard
-
-A full-stack, secure, database-driven portfolio application built with Django. It features dynamic project and tech stack management, client testimony collection, contact inquiries, and a restricted superuser dashboard.
-
----
-
-## 🚀 Features
-
-* **Public Portfolio Pages:** Home, About Me, Project Showcase (Detail View), Testimonies (CBV List + FBV Detail), and Contact Inquiry system.
-* **Superuser Dashboard (`/dashboard`):** Admin-only login restriction to manage Projects and Tech Stacks using clean HTML table layouts.
-* **Dynamic Tech Stack Allocation:** Uses Django `ManyToManyField` to link tech stack items across multiple projects without creating duplicates.
-* **Security & Configuration:** Environment variables configured using `python-decouple` with sensitive files ignored from version control.
+Before you start, I suggest using Pycharm when cloning the project, some shortcuts are not supported at vscode or any other programming apps.
 
 ---
 
@@ -27,13 +16,6 @@ cd PortfolioQuiz1Yumul
 
 2. Create and Activate a Virtual Environment
 
-macOS/Linux
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Windows
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
@@ -50,15 +32,10 @@ pip install django python-decouple
 4. Set Up Environment Variables
 Create a local .env file from the provided .env.example:
 
-macOS/Linux
-```
-cp .env.example .env
-```
-
-# Windows
 ```
 copy .env.example .env
 ```
+
 # Ensure the PortfolioQuiz/settings.py reads these values
 In the PortfolioQuiz/settings.py, import config from decouple and read those keys:
 

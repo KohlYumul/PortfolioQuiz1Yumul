@@ -58,7 +58,6 @@ You might see the red lines at decouple, config and Csv. Hover the cursor to "de
 5. Run Database Migrations
 
 ```
-python manage.py makemigrations
 python manage.py migrate
 ```
 
